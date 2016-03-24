@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <bean id="driver1" class="ru.kpfu.itis.alina.task006.Driver">
+              <constructor-arg value="Алексей"/>
+              <constructor-arg value="29"/>
+              <constructor-arg value="80"/>
+       </bean>
+
+       <bean id="driver2" class="ru.kpfu.itis.alina.task006.Driver">
+              <constructor-arg value="Григорий"/>
+              <constructor-arg value="43"/>
+              <constructor-arg value="77"/>
+       </bean>
+
+       <bean id="pedestrian1" class="ru.kpfu.itis.alina.task006.Pedestrian">
+              <constructor-arg value="Людмила"/>
+              <constructor-arg value="21"/>
+              <constructor-arg value="53"/>
+       </bean>
+
+       <bean id="auto" class="ru.kpfu.itis.alina.task006.Auto">
+              <constructor-arg ref="driver1"/>
+              <constructor-arg value="2"/>
+              <constructor-arg value="2000"/>
+       </bean>
+
+       <bean id="bus" class="ru.kpfu.itis.alina.task006.Bus">
+              <constructor-arg value="Автобус"/>
+              <constructor-arg ref="driver1"/>
+              <constructor-arg value="15"/>
+       </bean>
+
+       <bean id="bike" class="ru.kpfu.itis.alina.task006.Bike">
+              <constructor-arg ref="driver2"/>
+              <constructor-arg value="Спортивный"/>
+              <constructor-arg value="2"/>
+       </bean>
+
+       <bean id="lorry" class="ru.kpfu.itis.alina.task006.Lorry">
+              <constructor-arg value="КамАЗ"/>
+              <constructor-arg ref="driver2"/>
+              <constructor-arg value="7000"/>
+       </bean>
+
+       <bean id="specialServiceAuto" class="ru.kpfu.itis.alina.task006.SpecialServiceAuto">
+              <constructor-arg value="Скорая медицинская помощь"/>
+              <constructor-arg value="4000"/>
+              <constructor-arg ref="driver1"/>
+       </bean>
+
+       <bean id="agriculturalMachinery" class="ru.kpfu.itis.alina.task006.AgriculturalMachinery">
+              <constructor-arg value="Трактор"/>
+              <constructor-arg value="5500"/>
+              <constructor-arg ref="driver2"/>
+       </bean>
+
+       <bean id="moto" class="ru.kpfu.itis.alina.task006.Moto">
+              <constructor-arg ref="driver1"/>
+              <constructor-arg value="0"/>
+              <constructor-arg value="3000"/>
+       </bean>
+
+       <bean id="tram" class="ru.kpfu.itis.alina.task006.Tram">
+              <constructor-arg ref="driver2"/>
+              <constructor-arg value="30"/>
+              <constructor-arg value="18000"/>
+       </bean>
+
+       <bean id="animalDrawnCart" class="ru.kpfu.itis.alina.task006.AnimalDrawnCart">
+              <constructor-arg ref="driver2"/>
+              <constructor-arg value="20"/>
+              <constructor-arg value="1"/>
+       </bean>
+
+       <bean id="train" class="ru.kpfu.itis.alina.task006.Train">
+              <constructor-arg ref="driver2"/>
+              <constructor-arg value="300"/>
+              <constructor-arg value="6"/>
+       </bean>
+
+
+</beans>
