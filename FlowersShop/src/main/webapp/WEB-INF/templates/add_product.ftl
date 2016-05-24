@@ -8,13 +8,13 @@
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
 
-    <script type="text/javascript" src="/rs/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/rs/js/ddsmoothmenu.js"></script>
+    <link href="/css/templatemo_style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/css/orman.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/css/nivo-slider.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="/css/ddsmoothmenu.css"/>
 
-    <link href="/rs/css/templatemo_style.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="/rs/css/orman.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="/rs/css/nivo-slider.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="/rs/css/ddsmoothmenu.css"/>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/ddsmoothmenu.js"></script>
 
     <script type="text/javascript">
         ddsmoothmenu.init({
@@ -184,12 +184,12 @@
     <div id="templatemo_footer_wrapper">
         <div id="templatemo_footer">
             <div class="footer_left">
-                <a href="#"><img src="/rs/images/1311260370_paypal-straight.png" alt="Paypal"/></a>
-                <a href="#"><img src="/rs/images/1311260374_mastercard-straight.png" alt="Master"/></a>
-                <a href="#"><img src="/rs/images/1311260374_visa-straight.png" alt="Visa"/></a>
+                <a href="#"><img src="/resources/images/1311260370_paypal-straight.png" alt="Paypal"/></a>
+                <a href="#"><img src="/resources/images/1311260374_mastercard-straight.png" alt="Master"/></a>
+                <a href="#"><img src="/resources/images/1311260374_visa-straight.png" alt="Visa"/></a>
             </div>
             <div class="footer_right">
-                <p><a href="/">Главная</a> | <a href="/about_flowers">О цветах</a> | <a href="/products">Цветы</a>
+                <p><a href="/">Главная</a> | <a href="/about_flowers">О цветах</a> | <a href="/products/all">Цветы</a>
                     | <a href="/delivery">Доставка</a> | <a href="/contacts">Контакты</a> | <a href="/faq">FAQ</a>
                 </p>
 

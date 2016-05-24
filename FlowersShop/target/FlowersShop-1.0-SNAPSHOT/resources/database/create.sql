@@ -2,7 +2,8 @@ CREATE TABLE users (
 	id	 INTEGER unique not null primary key,
 	login    VARCHAR(10) unique not null,
 	password VARCHAR(30) not null,
-	email    VARCHAR(15) unique not null);	
+	email    VARCHAR(15) unique not null,
+	role     VARCHAR(20));
 
 CREATE TABLE flower (
 	id    INTEGER unique not null primary key,

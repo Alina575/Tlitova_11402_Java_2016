@@ -20,8 +20,10 @@ public interface FlowerService {
 
     Flower save(Flower flower);
 
-    Page<Flower> getByCategory(String category, Integer page);
+    
+    //Page<Flower> getByCategory(String category, Integer page);
 
     List<Flower> search(String name);
 
+    List<Flower> getAllByName(String name);
 }

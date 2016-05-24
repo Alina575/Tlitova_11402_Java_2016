@@ -41,17 +41,25 @@ public class FlowerServiceImpl implements FlowerService {
         return flowerRepository.save(flower);
     }
 
-    @Override
-    public Page<Flower> getByCategory(String category, Integer page) {
-        if(page == null) page = 0;
-        int pageSize = 12;
-        return flowerRepository.findByCategory(category, new PageRequest(page, pageSize));
-    }
 
+    /*
+        @Override
+        public Page<Flower> getByCategory(String category, Integer page) {
+            if(page == null) page = 0;
+            int pageSize = 12;
+            return flowerRepository.findByCategory(category, new PageRequest(page, pageSize));
+        }
+    */
     @Override
     public List<Flower> search(String name) {
         return flowerRepository.findByNameContainingIgnoreCase(name);
     }
 
-
+    @Override
+    public List<Flower> getAllByName(String name) {
+        return flowerRepository.findAllByName(name);
+    }
 }
+
+
+

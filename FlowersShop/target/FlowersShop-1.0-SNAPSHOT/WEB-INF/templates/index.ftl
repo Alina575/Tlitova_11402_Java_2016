@@ -4,34 +4,20 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Главная</title>
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
-    <link href="/rs/css/templatemo_style.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="/rs/css/orman.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="/rs/css/nivo-slider.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="/rs/css/ddsmoothmenu.css"/>
 
-    <script type="text/javascript" src="/rs/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/rs/js/ddsmoothmenu.js"></script>
+    <link href="/css/templatemo_style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/css/orman.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/css/nivo-slider.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="/css/ddsmoothmenu.css"/>
 
-    <script type="text/javascript">
-        ddsmoothmenu.init({
-            mainmenuid: "templatemo_menu", //menu DIV id
-            orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
-            classname: 'ddsmoothmenu', //class added to menu's outer DIV
-            //customtheme: ["#1c5a80", "#18374a"],
-            contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
-        });
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/ddsmoothmenu.js"></script>
 
-        function clearText(field) {
-            if (field.defaultValue == field.value) field.value = '';
-            else if (field.value == '') field.value = field.defaultValue;
-        }
 
-    </script>
 
-    <link rel="stylesheet" href="/rs/css/slimbox2.css" type="text/css" media="screen"/>
-    <script type="text/JavaScript" src="/rs/js/slimbox2.js"></script>
+
+    <link rel="stylesheet" href="/css/slimbox2.css" type="text/css" media="screen"/>
+    <script type="text/JavaScript" src="/js/slimbox2.js"></script>
 
 </head>
 
@@ -78,25 +64,19 @@
 
             <div class="slider-wrapper theme-orman">
                 <div id="slider" class="nivoSlider">
-                    <img src="/rs/images/portfolio/01.jpg" alt="slider image 1"/>
+                    <img src="/images/portfolio/01.jpg" alt="slider image 1"/>
                     <a href="#">
-                        <img src="/rs/images/portfolio/02.jpg" alt="slider image 2" title="Любые цветы на ваш вкус!"/>
+                        <img src="/images/portfolio/02.jpg" alt="slider image 2" title="Любые цветы на ваш вкус!"/>
                     </a>
-                    <img src="/rs/images/portfolio/03.jpg" alt="slider image 3"/>
-                    <img src="/rs/images/portfolio/04.jpg" alt="slider image 4" title="#htmlcaption"/>
-                    <img src="/rs/images/portfolio/05.jpg" alt="slider image 5" title="#htmlcaption"/>
+                    <img src="/images/portfolio/03.jpg" alt="slider image 3"/>
+                    <img src="/images/portfolio/04.jpg" alt="slider image 4" title="#htmlcaption"/>
+                    <img src="/images/portfolio/05.jpg" alt="slider image 5" title="#htmlcaption"/>
                 </div>
 
             </div>
-            <script type="text/javascript" src="/rs/js/jquery-1.6.1.min.js"></script>
-            <script type="text/javascript" src="/rs/js/jquery.nivo.slider.pack.js"></script>
-            <script type="text/javascript">
-                $(window).load(function () {
-                    $('#slider').nivoSlider({
-                        controlNav: false
-                    });
-                });
-            </script>
+            <script type="text/javascript" src="/js/jquery-1.6.1.min.js"></script>
+            <script type="text/javascript" src="/js/jquery.nivo.slider.pack.js"></script>
+
         </div>
         <!-- END of header -->
     </div>
@@ -112,41 +92,24 @@
 
                     <div class="content">
                         <ul class="sidebar_list">
-                            <li><a href="/products/{name}">Розы</a></li>
-                            <li><a href="/products/{name}">Тюльпаны</a></li>
-                            <li><a href="/products/{name}">Орхидеи</a></li>
-                            <li><a href="/products/{name}">Гвоздики</a></li>
-                            <li><a href="/products/{name}">Ирисы</a></li>
-                            <li><a href="/products/{name}">Хризантемы</a></li>
-                            <li><a href="/products/{name}">Альстромерии</a></li>
-                            <li><a href="/products/{name}">Другие</a></li>
+                            <li><a href="/products/roses">Розы</a></li>
+                            <li><a href="/products/tulips">Тюльпаны</a></li>
+                            <li><a href="/products/orchids">Орхидеи</a></li>
+                            <li><a href="/products/carnations">Гвоздики</a></li>
+                            <li><a href="/products/irises">Ирисы</a></li>
+                            <li><a href="/products/chrysants">Хризантемы</a></li>
+                            <li><a href="/products/alstroemerias">Альстромерии</a></li>
+                            <li><a href="/products/others">Другие</a></li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="sidebar_box"><span class="bottom"></span>
-
-                    <h3>Букеты</h3>
-
-                    <div class="content">
-                        <ul class="sidebar_list">
-                            <li><a href="#">С розами</a></li>
-                            <li><a href="#">С тюльпанами</a></li>
-                            <li><a href="#">С орхидеями</a></li>
-                            <li><a href="#">С гвоздиками</a></li>
-                            <li><a href="#">С ирисами</a></li>
-                            <li><a href="#">С хризантемами</a></li>
-                            <li><a href="#">Свадебные</a></li>
-                            <li><a href="#">Другие</a></li>
-                        </ul>
-                    </div>
-                </div>
                 <div class="sidebar_box"><span class="bottom"></span>
 
                     <h3>Спецпредложение</h3>
 
                     <div class="content special">
-                        <img src="/rs/images/templatemo_image_01.jpg" alt="Flowers"/>
+                        <img src="/images/templatemo_image_01.jpg" alt="Flowers"/>
                         <a href="#">Citrus Burst Bouquet</a>
 
                         <p>
@@ -177,14 +140,12 @@
         <!-- END of main -->
     </div>
     <!-- END of main wrapper -->
-    <a class="btn btn-action btn-lg" role="button" href="generate/pdf.htm">DOWNLOAD ONE FREE COMICS</a>
     <div id="templatemo_footer_wrapper">
         <div id="templatemo_footer">
             <div class="footer_left">
-
-                <a href="#"><img src="/rs/images/1311260370_paypal-straight.png" alt="Paypal"/></a>
-                <a href="#"><img src="/rs/images/1311260374_mastercard-straight.png" alt="Master"/></a>
-                <a href="#"><img src="/rs/images/1311260374_visa-straight.png" alt="Visa"/></a>
+                <a href="#"><img src="/images/1311260370_paypal-straight.png" alt="Paypal"/></a>
+                <a href="#"><img src="/images/1311260374_mastercard-straight.png" alt="Master"/></a>
+                <a href="#"><img src="/images/1311260374_visa-straight.png" alt="Visa"/></a>
             </div>
             <div class="footer_right">
                 <p><a href="/">Главная</a> | <a href="/about_flowers">О цветах</a> | <a href="/products/all">Цветы</a>

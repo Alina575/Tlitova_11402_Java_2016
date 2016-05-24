@@ -5,9 +5,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.lowagie.text.Document;
 import com.lowagie.text.Table;
 import com.lowagie.text.pdf.PdfWriter;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 import ru.kpfu.itis.ALINA_TLITOVA.models.Delivery;
 
+import java.math.BigInteger;
 import java.util.*;
 
 /**
@@ -16,9 +21,13 @@ import java.util.*;
  *         07.05.2016
  */
 
-public class PDFController extends AbstractPdfView {
-    @Override
-    protected void buildPdfDocument(Map<String, Object> map, Document document, PdfWriter pdfWriter, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
+@Controller
+public class PDFController {
+
+    /*
+    @RequestMapping(value = "/generate/pdf.htm", method = RequestMethod.GET)
+    ModelAndView generatePdf(Map<String, Object> map) throws Exception {
+
         List rants = (List) map.get("delivery");
         Table rantTable = new Table(6);
         rantTable.setWidth(102);
@@ -38,9 +47,13 @@ public class PDFController extends AbstractPdfView {
             rantTable.addCell(String.valueOf(new Date()));
             rantTable.addCell("   ");
         }
-        document.add(rantTable);
-    }
 
+        ModelAndView modelAndView = new ModelAndView("pdfView", "rantTable", rantTable);
+        modelAndView.addObject("rent", "PDF Cocument Some String");
+
+        return modelAndView;
+    }
+    */
 
 }
 

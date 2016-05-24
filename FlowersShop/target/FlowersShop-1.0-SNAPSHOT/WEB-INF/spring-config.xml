@@ -41,6 +41,12 @@
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 
+    <!--
+    <bean id="deliveryDetails.pdf"
+          class="ru.kpfu.itis.ALINA_TLITOVA.controllers.PDFController" />
+    <prop key="/deliveryDetails.pdf"/>
+-->
+
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>

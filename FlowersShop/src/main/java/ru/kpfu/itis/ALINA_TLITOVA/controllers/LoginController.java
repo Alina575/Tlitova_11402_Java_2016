@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletResponse;
+import java.util.Objects;
+
 /**
  * @author Alina Tlitova
  *         11-402
@@ -16,8 +19,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(value = "/login")
 public class LoginController {
     @RequestMapping(method = RequestMethod.GET)
+    public String getLogin(HttpServletResponse response,
+                           @RequestParam(value = "error", required = false) String error,
+                           Model model) {
+        if (Objects.equals(error, "true")) {
+            model.addAttribute("error", error);
+        }
+
+        return "login";
+    }
+    /*
+    @RequestMapping(method = RequestMethod.GET)
     public String getLogin(@RequestParam(value = "error", required = false) String error, Model model) {
-        if ("true".equals(error)) {
+        if (Objects.equals(error, "true")) {
             model.addAttribute("error", error);
         }
         return "login";
@@ -31,6 +45,7 @@ public class LoginController {
         }
         return "login";
     }
+    */
 }
 
 

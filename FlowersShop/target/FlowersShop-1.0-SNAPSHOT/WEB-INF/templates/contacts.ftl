@@ -7,8 +7,8 @@
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
 
-    <script src="/rs/js/jquery-2.1.4.js"></script>
-    <script type="text/javascript" src="/rs/js/jquery-2.1.4.js"></script>
+    <script src="/resources/js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery-2.1.4.js"></script>
     <script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
 
@@ -21,13 +21,13 @@
         });
     </script>
 
-    <link href="/rs/css/templatemo_style.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="/rs/css/orman.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="/rs/css/nivo-slider.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="/rs/css/ddsmoothmenu.css"/>
+    <link href="/css/templatemo_style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/css/orman.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/css/nivo-slider.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="/css/ddsmoothmenu.css"/>
 
-    <script type="text/javascript" src="/rs/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/rs/js/ddsmoothmenu.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/ddsmoothmenu.js"></script>
 
     <script type="text/javascript">
 
@@ -159,22 +159,11 @@
                     In vitae lacus in purus, 66770<br/>
                     Diam a mollis tempor<br/><br/>
 
-                    <strong>Phone:</strong> 010-440-5500<br/>
-                    <strong>Email:</strong> <a href="mailto:contact@company.com">contact@company.com</a> <br/>
+                    <strong>Телефон:</strong>286-99-47<br/>
+                    <strong>E-mail:</strong> <a href="mailto:contact@company.com">floris@company.com</a> <br/>
 
                     <div class="cleaner h20"></div>
 
-                    <h6><strong>Office Two</strong></h6>
-                    600-110 Duis lacinia, <br/>
-                    Ullamcorper mattis, 88770<br/>
-                    Maecenas a diam, mollis magna<br/><br/>
-
-                    <strong>Phone:</strong> 020-660-8800<br/>
-                    <strong>Email:</strong> <a href="mailto:info@company.com">info@company.com</a> <br/>
-
-                    Validate <a href="http://validator.w3.org/check?uri=referer"
-                                rel="nofollow"><strong>XHTML</strong></a> &amp; <a
-                        href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow"><strong>CSS</strong></a>
                 </div>
                 <div class="col col23 no_margin_right">
                     <div class="map_border">
@@ -185,7 +174,7 @@
                 </div>
                 <div class="cleaner h40"></div>
                 <div id="contact_form">
-                    <form method="post" name="contact" action="#">
+                    <form method="post" name="contact" action="/contacts" id="mesform">
                         <div class="col col13">
                             <h6><strong>Здесь вы можете оставить ваше сообщение.</strong></h6>
                             </br>
@@ -215,19 +204,17 @@
             </div>
             <div class="cleaner"></div>
         </div>
-        <!-- END of main -->
     </div>
-    <!-- END of main wrapper -->
 
     <div id="templatemo_footer_wrapper">
         <div id="templatemo_footer">
             <div class="footer_left">
-                <a href="#"><img src="/rs/images/1311260370_paypal-straight.png" alt="Paypal"/></a>
-                <a href="#"><img src="/rs/images/1311260374_mastercard-straight.png" alt="Master"/></a>
-                <a href="#"><img src="/rs/images/1311260374_visa-straight.png" alt="Visa"/></a>
+                <a href="#"><img src="/resources/images/1311260370_paypal-straight.png" alt="Paypal"/></a>
+                <a href="#"><img src="/resources/images/1311260374_mastercard-straight.png" alt="Master"/></a>
+                <a href="#"><img src="/resources/images/1311260374_visa-straight.png" alt="Visa"/></a>
             </div>
             <div class="footer_right">
-                <p><a href="/">Главная</a> | <a href="/about_flowers">О цветах</a> | <a href="/products">Цветы</a>
+                <p><a href="/">Главная</a> | <a href="/about_flowers">О цветах</a> | <a href="/products/all">Цветы</a>
                     | <a href="/delivery">Доставка</a> | <a href="/contacts">Контакты</a> | <a href="/faq">FAQ</a>
                 </p>
 
@@ -235,9 +222,7 @@
             </div>
             <div class="cleaner"></div>
         </div>
-        <!-- END of footer -->
     </div>
-    <!-- END of footer wrapper -->
 </div>
 
 </body>

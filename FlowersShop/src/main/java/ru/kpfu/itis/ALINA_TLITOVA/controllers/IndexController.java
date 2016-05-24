@@ -18,6 +18,7 @@ public class IndexController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String returnIndex() {
+        /*
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         if (authentication.getPrincipal() != "anonymousUser") {
@@ -31,6 +32,7 @@ public class IndexController {
                 return "redirect:/";
             }
         }
+        */
         return "index";
     }
 }

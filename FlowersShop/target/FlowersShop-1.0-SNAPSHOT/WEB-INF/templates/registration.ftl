@@ -6,13 +6,14 @@
     <title>Регистрация</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
-    <link href="/rs/css/templatemo_style.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="/rs/css/orman.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="/rs/css/nivo-slider.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="/rs/css/ddsmoothmenu.css"/>
 
-    <script type="text/javascript" src="/rs/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/rs/js/ddsmoothmenu.js"></script>
+    <link href="/css/templatemo_style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/css/orman.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/css/nivo-slider.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="/css/ddsmoothmenu.css"/>
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/ddsmoothmenu.js"></script>
 
     <script type="text/javascript">
 
@@ -133,60 +134,62 @@
                 </div>
             </div>
 
+
             <div id="content" class="right">
                 <h2>Регистрация</h2>
 
-                <form>
-                    <div class="content_half left form_field">
+            <form action="/registration" method="post" modelAttribute="regform" id="regform">
+                <div class="content_half left form_field">
 
-                    <#if error??>
-                        <h3 style="color: #ff0000">${error}</h3>
-                    </#if>
+                    <#if loginerr??><h4 style="color: #ff0000">${loginerr}</h4></#if>
 
-                        Логин:
-                        <input name="j_username" type="text"
-                        <#if login??>
-                               value="${login}"
-                        </#if>
-                               path="login" id="login" maxlength="40" autofocus/>
-                        <errors path="login" cssClass="error" delimiter=" "></errors>
+                    Логин:
+                    <input name="login" type="text"
+                         <#if login??>
+                           value="${login}"
+                           </#if>
+                           path="login" id="login" maxlength="40" autofocus/>
+                    <errors path="login" cssClass="error" delimiter=" "/>
 
-                        Пароль:
-                        <input name="j_password" type="password"  path="password" id="password" maxlength="40"/>
-                        <errors path="password" cssClass="error" delimiter=" "></errors>
 
-                        Подтвердите пароль:
-                        <input name="confpassword" type="password" id="confpassword" maxlength="40"/>
+                    <#if passwerr??><h4 style="color: #ff0000">${passwerr}</h4></#if>
 
-                    </div>
+                    Пароль:
+                    <input name="password" type="password" path="password" id="password" maxlength="40"/>
+                    <errors path="password" cssClass="error" delimiter=" "/>
 
-                    <div class="content_half right form_field">
 
-                        E-mail:
-                        <input name="email" type="text" path="email" id="email" maxlength="40"/>
-                        <errors path="email" cssClass="error" delimiter=" "></errors>
-                        <br/>
-                        <br/>
+                    <#if passwreperr??>${passwreperr}</#if>
 
-                        <select name="role">
-                            <option>Покупатель</option>
-                            <option>Продавец</option>
-                        </select>
-                        </br>
-                        <br/>
-                        <input class="login" type="submit" value="Регистрация"/>
-                    </div>
+                    Подтвердите пароль:
+                    <input path="confpassword" name="confpassword" type="password" id="confpassword" maxlength="40"/>
 
-                    <div class="cleaner h40"></div>
-                    <p><input name="terms" type="checkbox" id="terms"/>
-                        I have read and accept the <a href="#">Terms of Use</a>. Validate <a
-                                href="http://validator.w3.org/check?uri=referer"
-                                rel="nofollow"><strong>XHTML</strong></a> &amp; <a
-                                href="http://jigsaw.w3.org/css-validator/check/referer"
-                                rel="nofollow"><strong>CSS</strong></a>.</p>
-                </form>
+                </div>
+
+                <div class="content_half right form_field">
+
+                    <#if emailerr??><h4 style="color: #ff0000">${emailerr}</h4></#if>
+
+                    E-mail:
+                    <input name="email" type="text" path="email" id="email" maxlength="40"/>
+                    <errors path="email" cssClass="error" delimiter=" "/>
+                    <br/>
+                    <br/>
+
+                    <select name="role">
+                        <option>Покупатель</option>
+                        <option>Продавец</option>
+                    </select>
+                    </br>
+                    <br/>
+                    <input class="login" type="submit" value="Регистрация"/>
+                </div>
+
+                <div class="cleaner h40"></div>
+            </form>
 
             </div>
+
 
             <div class="cleaner"></div>
         </div>
@@ -197,12 +200,12 @@
     <div id="templatemo_footer_wrapper">
         <div id="templatemo_footer">
             <div class="footer_left">
-                <a href="#"><img src="/rs/images/1311260370_paypal-straight.png" alt="Paypal"/></a>
-                <a href="#"><img src="/rs/images/1311260374_mastercard-straight.png" alt="Master"/></a>
-                <a href="#"><img src="/rs/images/1311260374_visa-straight.png" alt="Visa"/></a>
+                <a href="#"><img src="/resources/images/1311260370_paypal-straight.png" alt="Paypal"/></a>
+                <a href="#"><img src="/resources/images/1311260374_mastercard-straight.png" alt="Master"/></a>
+                <a href="#"><img src="/resources/images/1311260374_visa-straight.png" alt="Visa"/></a>
             </div>
             <div class="footer_right">
-                <p><a href="/">Главная</a> | <a href="/about_flowers">О цветах</a> | <a href="/products">Цветы</a>
+                <p><a href="/">Главная</a> | <a href="/about_flowers">О цветах</a> | <a href="/products/all">Цветы</a>
                     | <a href="/delivery">Доставка</a> | <a href="/contacts">Контакты</a> | <a href="/faq">FAQ</a>
                 </p>
 
