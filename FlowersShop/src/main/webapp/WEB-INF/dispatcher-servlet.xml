@@ -12,12 +12,14 @@
 
     <mvc:annotation-driven/>
     <!--
-    -->
-    <mvc:resources mapping="/css/**" location="resources/css/"/>
-    <mvc:resources mapping="/js/**" location="resources/js/"/>
-    <mvc:resources mapping="/images/**" location="resources/images/"/>
-    <mvc:resources mapping="/js/**" location="resources/js/"/>
-    <mvc:resources mapping="/nivo-slider/**" location="resources/nivo-slider/"/>
+        -->
+
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+    <mvc:resources mapping="/css/**" location="/resources/css/"/>
+    <mvc:resources mapping="/js/**" location="/resources/js/"/>
+    <mvc:resources mapping="/images/**" location="/resources/images/"/>
+    <mvc:resources mapping="/js/**" location="/resources/js/"/>
+    <mvc:resources mapping="/nivo-slider/**" location="/resources/nivo-slider/"/>
 
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPath" value="/WEB-INF/templates"/>
@@ -37,7 +39,7 @@
     </bean>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
-        <property name="order" value="1"></property>
-        <property name="basename" value="views"></property>
+        <property name="order" value="1"/>
+        <property name="basename" value="views"/>
     </bean>
 </beans>

@@ -36,6 +36,11 @@ public class DeliveryServiceImpl implements DeliveryService {
     }
 
     @Override
+    public Delivery getByUser_login(String user_login) {
+        return deliveryRepository.findByUser_login(user_login);
+    }
+
+    @Override
     public void deleteById(Integer id) {
         deliveryRepository.delete(id);
     }
@@ -65,6 +70,11 @@ public class DeliveryServiceImpl implements DeliveryService {
             delivery.setFlat(deliveryForm.getFlat());
             deliveryRepository.save(delivery);
         }
+    }
+
+    @Override
+    public List<Delivery> getAllByUser_id(Integer user_id) {
+        return deliveryRepository.findAllByUser_id(user_id);
     }
 
 

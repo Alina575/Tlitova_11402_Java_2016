@@ -28,11 +28,11 @@ public class Flower {
     @Column(name = "price")
     private Integer price;
 
-    @Column(name = "quantity")
-    private Integer quantity;
-
     @Column(name = "descr")
     private String descr;
+
+    @Column(name = "category")
+    private String category;
 
     public Integer getId() {
         return id;
@@ -74,19 +74,19 @@ public class Flower {
         this.price = price;
     }
 
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
     public String getDescr() {
         return descr;
     }
 
     public void setDescr(String descr) {
         this.descr = descr;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

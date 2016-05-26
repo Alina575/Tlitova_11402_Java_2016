@@ -40,8 +40,16 @@
     <div id="templatemo_header_wsp">
         <div id="templatemo_header" class="header_subpage">
 
+        <#if admin??>
+            <p class="logreg"><a href="/admin_messages" class="loginregister" title="Управление">Управление</a></p>
+        </#if>
+
+        <#if username??>
+            <p class="logreg"><a href="/logout" class="loginregister" title="Выход">Выход</a></p>
+        <#else >
             <p class="logreg"><a href="/login" class="loginregister" title="Вход">Вход</a> ||
                 <a href="/registration" class="loginregister" title="Регистрация">Регистрация</a></p>
+        </#if>
 
             <p class="logreg"><a href="/shopping_cart" class="loginregister" title="Корзина">Корзина</a></p>
 
@@ -51,9 +59,9 @@
                 <ul>
                     <li><a href="/">Главная</a></li>
                     <li><a href="/about_flowers">О цветах</a></li>
-                    <li><a href="/products/all" class="selected">Цветы</a>
+                    <li><a href="/products" class="selected">Цветы</a>
                         <ul>
-                            <li><a href="/products/all">Все</a></li>
+                            <li><a href="/products">Все</a></li>
                             <li><a href="/private_adv">Частные объявления</a></li>
                             <li><a href="/add_product">Добавить товар</a></li>
                         </ul>
@@ -62,14 +70,7 @@
                     <li><a href="/contacts">Контакты</a></li>
                     <li><a href="/faq">FAQ</a></li>
                 </ul>
-                <div id="templatemo_search">
-                    <form action="#" method="get">
-                        <input type="text" value="Поиск" name="keyword" id="keyword" title="keyword"
-                               onfocus="clearText(this)" onblur="clearText(this)" class="txt_field"/>
-                        <input type="submit" name="Search" value="" alt="Search" id="searchbutton" title="Search"
-                               class="sub_btn"/>
-                    </form>
-                </div>
+
                 <br style="clear: left"/>
             </div>
             <!-- end of templatemo_menu -->
@@ -87,14 +88,7 @@
 
                     <div class="content">
                         <ul class="sidebar_list">
-                            <li><a href="/products/{name}">Розы</a></li>
-                            <li><a href="/products/{name}">Тюльпаны</a></li>
-                            <li><a href="/products/{name}">Орхидеи</a></li>
-                            <li><a href="/products/{name}">Гвоздики</a></li>
-                            <li><a href="/products/{name}">Ирисы</a></li>
-                            <li><a href="/products/{name}">Хризантемы</a></li>
-                            <li><a href="/products/{name}">Альстромерии</a></li>
-                            <li><a href="/products/{name}">Другие</a></li>
+                        ${menu}
                         </ul>
                     </div>
                 </div>
@@ -104,13 +98,13 @@
                     <h3>Спецпредложение</h3>
 
                     <div class="content special">
-                        <img src="/resources/images/templatemo_image_01.jpg" alt="Flowers"/>
-                        <a href="#">Citrus Burst Bouquet</a>
+                        <img src="/images/product/${saleimg}.jpg" alt="Flowers" width="220" height="220"/>
+                        <a href="#">${salename} ${saletype}</a>
 
                         <p>
-                            Цена, руб:
-                            <span class="price normal_price">160</span>&nbsp;&nbsp;
-                            <span class="price special_price">100</span>
+                            Цена:
+                            <span class="price normal_price">${oldprice} руб</span>&nbsp;&nbsp;
+                            <span class="price special_price">${newprice} руб</span>
                         </p>
                     </div>
                 </div>
@@ -120,36 +114,32 @@
                 <h2>Детали</h2>
 
                 <div class="content_half left">
-                    <a rel="lightbox" href="/resources/images/product/image_01_l.jpg"><img src="/resources/images/product/image_01.jpg"
-                                                                                alt="flowers"/></a>
+                    <a rel="lightbox" href="#"><img src="../images/product/${flower.img}.jpg" alt="flowers" width="300"
+                                                    height="300"/></a>
                 </div>
                 <div class="content_half right">
                     <table>
                         <tr>
                             <td width="130">Цена, руб:</td>
-                            <td width="84">240</td>
+                            <td width="84">${flower.price}</td>
                         </tr>
                         <tr>
                             <td>Количество</td>
-                            <td><input type="text" value="1" size="6" maxlength="2"/></td>
+                            <td><input name="quantity" type="text" size="6" maxlength="2"/></td>
                         </tr>
                     </table>
                     <div class="cleaner h20"></div>
-                    <a href="/shopping_cart" class="button">В корзину</a>
+
+                    <form action="/shopping_cart/${flower.id}" method="post">
+                        <input type="submit" value="В корзину"/>
+                    </form>
+
                 </div>
                 <div class="cleaner h40"></div>
 
                 <h4>Описание</h4>
 
-                <p>Sed ullamcorper nunc at magna egestas fermentum. Etiam turpis orci, condimentum luctus orci id,
-                    elementum vulputate nunc. Donec diam turpis, iaculis vitae feugiat ac, molestie at odio. Nullam
-                    tincidunt est ac sagittis ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Curabitur semper quam sit amet turpis rhoncus id venenatis tellus sollicitudin. Fusce ullamcorper,
-                    dolor non mollis pulvinar, turpis tortor commodo nisl, et semper lectus augue blandit tellus.
-                    Quisque id bibendum libero. Validate <a href="http://validator.w3.org/check?uri=referer"
-                                                            rel="nofollow"><strong>XHTML</strong></a> &amp; <a
-                            href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow"><strong>CSS</strong></a>.
-                </p>
+                <p>${flower.descr}</p>
 
                 <div class="cleaner h40"></div>
 
@@ -163,12 +153,12 @@
     <div id="templatemo_footer_wrapper">
         <div id="templatemo_footer">
             <div class="footer_left">
-                <a href="#"><img src="/resources/images/1311260370_paypal-straight.png" alt="Paypal"/></a>
-                <a href="#"><img src="/resources/images/1311260374_mastercard-straight.png" alt="Master"/></a>
-                <a href="#"><img src="/resources/images/1311260374_visa-straight.png" alt="Visa"/></a>
+                <a href="#"><img src="../images/1311260370_paypal-straight.png" alt="Paypal"/></a>
+                <a href="#"><img src="../images/1311260374_mastercard-straight.png" alt="Master"/></a>
+                <a href="#"><img src="../images/1311260374_visa-straight.png" alt="Visa"/></a>
             </div>
             <div class="footer_right">
-                <p><a href="/">Главная</a> | <a href="/about_flowers">О цветах</a> | <a href="/products/all">Цветы</a>
+                <p><a href="/">Главная</a> | <a href="/about_flowers">О цветах</a> | <a href="/products">Цветы</a>
                     | <a href="/delivery">Доставка</a> | <a href="/contacts">Контакты</a> | <a href="/faq">FAQ</a>
                 </p>
 

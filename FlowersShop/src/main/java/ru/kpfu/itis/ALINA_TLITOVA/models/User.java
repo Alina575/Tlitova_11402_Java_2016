@@ -22,8 +22,8 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "email", nullable = false)
-    private String email;
+    @Column(name = "phone", nullable = false)
+    private String phone;
 
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
@@ -53,12 +53,12 @@ public class User {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Role getRole() {

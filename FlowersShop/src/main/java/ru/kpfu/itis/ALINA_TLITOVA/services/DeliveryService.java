@@ -17,6 +17,8 @@ public interface DeliveryService {
 
     Delivery getByUser_id(Integer user_id);
 
+    Delivery getByUser_login(String user_login);
+
     void deleteById(Integer id);
 
     void delete(Delivery delivery);
@@ -24,4 +26,6 @@ public interface DeliveryService {
     Delivery save(Delivery delivery);
 
     void saveDelivery(DeliveryForm deliveryForm);
+
+    List<Delivery> getAllByUser_id(Integer id);
 }

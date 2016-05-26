@@ -39,8 +39,12 @@
     <div id="templatemo_header_wsp">
         <div id="templatemo_header" class="header_subpage">
 
+        <#if username??>
+            <p class="logreg"><a href="/logout" class="loginregister" title="Выход">Выход</a></p>
+        <#else >
             <p class="logreg"><a href="/login" class="loginregister" title="Вход">Вход</a> ||
                 <a href="/registration" class="loginregister" title="Регистрация">Регистрация</a></p>
+        </#if>
 
             <p class="logreg"><a href="/shopping_cart" class="loginregister" title="Корзина">Корзина</a></p>
 
@@ -50,9 +54,9 @@
                 <ul>
                     <li><a href="/">Главная</a></li>
                     <li><a href="/about_flowers">О цветах</a></li>
-                    <li><a href="/products/all" class="selected">Цветы</a>
+                    <li><a href="/products" class="selected">Цветы</a>
                         <ul>
-                            <li><a href="/products/all">Все</a></li>
+                            <li><a href="/products">Все</a></li>
                             <li><a href="/private_adv">Частные объявления</a></li>
                             <li><a href="/add_product">Добавить товар</a></li>
                         </ul>
@@ -62,12 +66,7 @@
                     <li><a href="/faq">FAQ</a></li>
                 </ul>
                 <div id="templatemo_search">
-                    <form action="#" method="get">
-                        <input type="text" value="Поиск" name="keyword" id="keyword" title="keyword"
-                               onfocus="clearText(this)" onblur="clearText(this)" class="txt_field"/>
-                        <input type="submit" name="Search" value="" alt="Search" id="searchbutton" title="Search"
-                               class="sub_btn"/>
-                    </form>
+
                 </div>
                 <br style="clear: left"/>
             </div>
@@ -86,47 +85,23 @@
 
                     <div class="content">
                         <ul class="sidebar_list">
-                            <li><a href="/products/{name}">Розы</a></li>
-                            <li><a href="/products/{name}">Тюльпаны</a></li>
-                            <li><a href="/products/{name}">Орхидеи</a></li>
-                            <li><a href="/products/{name}">Гвоздики</a></li>
-                            <li><a href="/products/{name}">Ирисы</a></li>
-                            <li><a href="/products/{name}">Хризантемы</a></li>
-                            <li><a href="/products/{name}">Альстромерии</a></li>
-                            <li><a href="/products/{name}">Другие</a></li>
+                        ${menu}
                         </ul>
                     </div>
                 </div>
 
-                <div class="sidebar_box"><span class="bottom"></span>
-
-                    <h3>Букеты</h3>
-
-                    <div class="content">
-                        <ul class="sidebar_list">
-                            <li><a href="#">С розами</a></li>
-                            <li><a href="#">С тюльпанами</a></li>
-                            <li><a href="#">С орхидеями</a></li>
-                            <li><a href="#">С гвоздиками</a></li>
-                            <li><a href="#">С ирисами</a></li>
-                            <li><a href="#">С хризантемами</a></li>
-                            <li><a href="#">Свадебные</a></li>
-                            <li><a href="#">Другие</a></li>
-                        </ul>
-                    </div>
-                </div>
                 <div class="sidebar_box"><span class="bottom"></span>
 
                     <h3>Спецпредложение</h3>
 
                     <div class="content special">
-                        <img src="/resources/images/templatemo_image_01.jpg" alt="Flowers"/>
-                        <a href="#">Citrus Burst Bouquet</a>
+                        <img src="/images/product/${saleimg}.jpg" alt="Flowers" width="220" height="220"/>
+                        <a href="#">${salename} ${saletype}</a>
 
                         <p>
                             Цена:
-                            <span class="price normal_price">$160</span>&nbsp;&nbsp;
-                            <span class="price special_price">$100</span>
+                            <span class="price normal_price">${oldprice} руб</span>&nbsp;&nbsp;
+                            <span class="price special_price">${newprice} руб</span>
                         </p>
                     </div>
                 </div>
@@ -141,60 +116,37 @@
                         <th width="60" align="center">Тип</th>
                         <th width="60" align="center">Цена, руб</th>
                         <th width="60" align="center">Продавец</th>
-                        <th width="60" align="center">Количество</th>
-                        <th width="70" align="center"></th>
+                        <th width="60" align="center">Номер</th>
+                        <th width="70" align="center">Дата</th>
                     </tr>
                 </table>
 
                 <div class="cleaner h20"></div>
 
-                <form action="#" method="get">
+            <#list products as p>
+
                     <table width="700" border="0" cellpadding="5" cellspacing="0">
-                    <tr bgcolor="#41581B">
-                            <td width="80" align="center">Роза</td>
-                            <td width="60" align="center">Белая</td>
-                            <td width="60" align="center">100</td>
-                            <td width="60" align="center">Кто-то</td>
-                            <td width="60" align="center"><input type="text" name="quantity" value="1" size="5"
-                                                                 maxlength="2"/></td>
-                            <td width="50" align="center"><input type="submit" value="В корзину"/></td>
-                    </tr>
-                </table>
-                </form>
+                        <tr bgcolor="#41581B">
+                            <td width="80" align="center">${p.name}</td>
+                            <td width="60" align="center">${p.type}</td>
+                            <td width="60" align="center">${p.price}</td>
+                            <td width="60" align="center">${p.user.login}</td>
+                            <td width="60" align="center">${p.user.phone}</td>
+                            <td width="60" align="center">${p.date}</td>
+                        </tr>
+                    </table>
 
                 <table width="700" border="0" cellpadding="5" cellspacing="0">
                     <tr bgcolor="#41581B">
-                        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis nulla id orci
-                            malesuada porta posuere quis massa. Nunc vitae purus non augue scelerisque ultricies vitae
-                            et velit
-                            quis nulla id orci malesua.
-                        </td>
+                        <td>${p.descr}</td>
                     </tr>
                 </table>
 
                 <div class="cleaner h20"></div>
 
-                <table width="700" border="0" cellpadding="5" cellspacing="0">
-                    <tr bgcolor="#41581B">
-                        <td width="80" align="center">Роза</td>
-                        <td width="60" align="center">Белая</td>
-                        <td width="60" align="center">100</td>
-                        <td width="60" align="center">Кто-то</td>
-                        <td width="60" align="center"><input name="quantity" type="text" value="1" size="5"
-                                                             maxlength="2"/></td>
-                        <td width="50" align="center"><input type="submit" value="В корзину"/></td>
-                    </tr>
-                </table>
+            </#list>
 
-                <table width="700" border="0" cellpadding="5" cellspacing="0">
-                    <tr bgcolor="#41581B">
-                        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis nulla id orci
-                            malesuada porta posuere quis massa. Nunc vitae purus non augue scelerisque ultricies vitae
-                            et velit
-                            quis nulla id orci malesua.
-                        </td>
-                    </tr>
-                </table>
+
 
 
             </div>
@@ -205,12 +157,12 @@
     <div id="templatemo_footer_wrapper">
         <div id="templatemo_footer">
             <div class="footer_left">
-                <a href="#"><img src="/resources/images/1311260370_paypal-straight.png" alt="Paypal"/></a>
-                <a href="#"><img src="/resources/images/1311260374_mastercard-straight.png" alt="Master"/></a>
-                <a href="#"><img src="/resources/images/1311260374_visa-straight.png" alt="Visa"/></a>
+                <a href="#"><img src="images/1311260370_paypal-straight.png" alt="Paypal"/></a>
+                <a href="#"><img src="images/1311260374_mastercard-straight.png" alt="Master"/></a>
+                <a href="#"><img src="images/1311260374_visa-straight.png" alt="Visa"/></a>
             </div>
             <div class="footer_right">
-                <p><a href="/">Главная</a> | <a href="/about_flowers">О цветах</a> | <a href="/products/all">Цветы</a>
+                <p><a href="/">Главная</a> | <a href="/about_flowers">О цветах</a> | <a href="/products">Цветы</a>
                     | <a href="/delivery">Доставка</a> | <a href="/contacts">Контакты</a> | <a href="/faq">FAQ</a>
                 </p>
 

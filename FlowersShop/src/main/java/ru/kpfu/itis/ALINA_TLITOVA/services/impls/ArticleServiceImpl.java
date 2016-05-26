@@ -48,5 +48,10 @@ public class ArticleServiceImpl implements ArticleService {
         return articleRepository.save(article);
     }
 
+    @Override
+    public List<Article> getAllByName(String name) {
+        return articleRepository.findAllByName(name);
+    }
+
 
 }

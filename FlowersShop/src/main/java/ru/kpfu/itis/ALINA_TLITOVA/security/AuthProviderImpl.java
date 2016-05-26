@@ -23,6 +23,7 @@ import java.util.List;
 
 
 public class AuthProviderImpl implements AuthenticationProvider {
+
     @Autowired
     UserRepository userRepository;
 
@@ -39,6 +40,7 @@ public class AuthProviderImpl implements AuthenticationProvider {
         }
 
         String password = authentication.getCredentials().toString();
+
         if (user != null && user.getPassword() != null) {
             if (!encoder.matches(password, user.getPassword())) {
                 throw new BadCredentialsException("invalid password");
@@ -50,11 +52,13 @@ public class AuthProviderImpl implements AuthenticationProvider {
             authorities.add(new SimpleGrantedAuthority(user.getRole().toString()));
         }
 
-        UsernamePasswordAuthenticationToken user1 = null;
+        UsernamePasswordAuthenticationToken person = null;
+
         if (user != null) {
-            user1 = new UsernamePasswordAuthenticationToken(user, null, authorities);
+            person = new UsernamePasswordAuthenticationToken(user, null, authorities);
         }
-        return user1;
+
+        return person;
     }
 
     @Override

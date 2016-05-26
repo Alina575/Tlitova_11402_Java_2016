@@ -6,5 +6,5 @@ package ru.kpfu.itis.ALINA_TLITOVA.models;
  */
 
 public enum Role {
-    ROLE_ANONYMOUS, ROLE_SELLER, ROLE_BUYER
+    ROLE_ADMIN, ROLE_SELLER, ROLE_BUYER
 }

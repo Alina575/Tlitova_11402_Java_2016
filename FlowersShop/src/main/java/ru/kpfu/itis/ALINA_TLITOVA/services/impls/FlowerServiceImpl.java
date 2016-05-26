@@ -50,15 +50,17 @@ public class FlowerServiceImpl implements FlowerService {
             return flowerRepository.findByCategory(category, new PageRequest(page, pageSize));
         }
     */
+
     @Override
-    public List<Flower> search(String name) {
+    public List<Flower> getAllByName(String name) {
         return flowerRepository.findByNameContainingIgnoreCase(name);
     }
 
     @Override
-    public List<Flower> getAllByName(String name) {
-        return flowerRepository.findAllByName(name);
+    public List<Flower> getAllByCategory(String category) {
+        return flowerRepository.findAllByCategory(category);
     }
+
 }
 
 

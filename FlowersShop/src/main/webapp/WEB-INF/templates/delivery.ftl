@@ -1,3 +1,6 @@
+<#assign sf=JspTaglibs["http://www.springframework.org/tags/form"]>
+<#assign sec=JspTaglibs["http://www.springframework.org/security/tags"]>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -41,8 +44,17 @@
     <div id="templatemo_header_wsp">
         <div id="templatemo_header" class="header_subpage">
 
+        <#if admin??>
+            <p class="logreg"><a href="/admin_messages" class="loginregister" title="Управление">Управление</a></p>
+        </#if>
+
+        <#if username??>
+            <p class="logreg"><a href="/logout" class="loginregister" title="Выход">Выход</a></p>
+        <#else >
             <p class="logreg"><a href="/login" class="loginregister" title="Вход">Вход</a> ||
                 <a href="/registration" class="loginregister" title="Регистрация">Регистрация</a></p>
+        </#if>
+
 
             <p class="logreg"><a href="/shopping_cart" class="loginregister" title="Корзина">Корзина</a></p>
 
@@ -52,9 +64,9 @@
                 <ul>
                     <li><a href="/">Главная</a></li>
                     <li><a href="/about_flowers">О цветах</a></li>
-                    <li><a href="/products/all">Цветы</a>
+                    <li><a href="/products">Цветы</a>
                         <ul>
-                            <li><a href="/products/all">Все</a></li>
+                            <li><a href="/products">Все</a></li>
                             <li><a href="/private_adv">Частные объявления</a></li>
                             <li><a href="/add_product">Добавить товар</a></li>
                         </ul>
@@ -63,14 +75,7 @@
                     <li><a href="/contacts">Контакты</a></li>
                     <li><a href="/faq">FAQ</a></li>
                 </ul>
-                <div id="templatemo_search">
-                    <form action="#" method="get">
-                        <input type="text" value="Поиск" name="keyword" id="keyword" title="keyword"
-                               onfocus="clearText(this)" onblur="clearText(this)" class="txt_field"/>
-                        <input type="submit" name="Search" value="" alt="Search" id="searchbutton" title="Search"
-                               class="sub_btn"/>
-                    </form>
-                </div>
+
                 <br style="clear: left"/>
             </div>
             <!-- end of templatemo_menu -->
@@ -88,47 +93,23 @@
 
                     <div class="content">
                         <ul class="sidebar_list">
-                            <li><a href="/products/{name}">Розы</a></li>
-                            <li><a href="/products/{name}">Тюльпаны</a></li>
-                            <li><a href="/products/{name}">Орхидеи</a></li>
-                            <li><a href="/products/{name}">Гвоздики</a></li>
-                            <li><a href="/products/{name}">Ирисы</a></li>
-                            <li><a href="/products/{name}">Хризантемы</a></li>
-                            <li><a href="/products/{name}">Альстромерии</a></li>
-                            <li><a href="/products/{name}">Другие</a></li>
+                        ${menu}
                         </ul>
                     </div>
                 </div>
 
-                <div class="sidebar_box"><span class="bottom"></span>
-
-                    <h3>Букеты</h3>
-
-                    <div class="content">
-                        <ul class="sidebar_list">
-                            <li><a href="#">С розами</a></li>
-                            <li><a href="#">С тюльпанами</a></li>
-                            <li><a href="#">С орхидеями</a></li>
-                            <li><a href="#">С гвоздиками</a></li>
-                            <li><a href="#">С ирисами</a></li>
-                            <li><a href="#">С хризантемами</a></li>
-                            <li><a href="#">Свадебные</a></li>
-                            <li><a href="#">Другие</a></li>
-                        </ul>
-                    </div>
-                </div>
                 <div class="sidebar_box"><span class="bottom"></span>
 
                     <h3>Спецпредложение</h3>
 
                     <div class="content special">
-                        <img src="/rs/images/templatemo_image_01.jpg" alt="Flowers"/>
-                        <a href="#">Citrus Burst Bouquet</a>
+                        <img src="/images/product/${saleimg}.jpg" alt="Flowers" width="220" height="220"/>
+                        <a href="#">${salename} ${saletype}</a>
 
                         <p>
                             Цена:
-                            <span class="price normal_price">$160</span>&nbsp;&nbsp;
-                            <span class="price special_price">$100</span>
+                            <span class="price normal_price">${oldprice} руб</span>&nbsp;&nbsp;
+                            <span class="price special_price">${newprice} руб</span>
                         </p>
                     </div>
                 </div>
@@ -137,59 +118,81 @@
             <div id="content" class="right">
                 <h2>Доставка</h2>
 
-                <h3>Детали заказа</h3>
-
-                <form>
-                    <div class="content_half left form_field">
-                        Фамилия (как на кредитной карте):
-                        <input name="secondname" type="text" id="secondname" maxlength="40"/>
-                        Имя (как на кредитной карте):
-                        <input name="name" type="text" id="name" maxlength="40"/>
-                        Отчество:
-                        <input name="lastname" type="text" id="lastname" maxlength="40"/>
-                        Страна:
-                        <input name="country" type="text" id="country" maxlength="40"/>
-                        Город:
-                        <input name="city" type="text" id="city" maxlength="40"/>
-                        Улица:
-                        <input name="street" type="text" id="street" maxlength="40"/>
-                        Дом:
-                        <input name="house" type="text" id="house" maxlength="40"/>
-                        Квартира:
-                        <input name="flat" type="text" id="flat" maxlength="40"/>
-                    </div>
-
-                    <div class="content_half right form_field">
-
-                        Номер телефона:<br/>
-                        <input name="phone" type="text" id="phone" maxlength="40"/>
-                        <span>Пожалуйста, укажите ваш доступный номер телефона, чтобы мы могли связаться с вами.</span>
-                        <br/>
-
-                        <br/>
-                        <input class="login" type="submit" value="Заказать"/>
-                    </div>
-
-                </form>
-
+            <#if msg??>
+                <h3>${msg}</h3>
 
                 <div align="center">
                     </br>
                     </br>
                     </br>
-                    <h5><a href="/downloadPDF">Загрузить детали заказа в формате PDF</a></h5>
+                    <h5><a href="/generate/deliveryDetails.htm?">Загрузить детали заказа в формате PDF</a></h5>
                 </div>
 
+            <#else>
+
+
+
+                <h3>Детали заказа</h3>
+
+                <@sf.form action="/delivery" method="post" modelAttribute="delform" id="delform">
+                    <div class="content_half left form_field" align="left">
+                        <h5>Фамилия (как на кредитной карте):</h5>
+                        <@sf.input path="secondname" name="secondname" type="text" id="secondname" maxlength="40" autofocus="autofocus"/>
+                        <h6 style="color: #ff0000"><@sf.errors path="secondname" cssClass="error" delimiter=" "/></h6>
+
+                        <br/>
+                        <h5>Имя (как на кредитной карте):</h5>
+                        <@sf.input path="name" name="name" type="text" id="name" maxlength="40"/>
+                        <h6 style="color: #ff0000"><@sf.errors path="name" cssClass="error" delimiter=" "/></h6>
+
+                        <br/>
+                        <h5>Отчество:</h5>
+                        <@sf.input path="lastname" name="lastname" type="text" id="lastname" maxlength="40"/>
+                        <h6 style="color: #ff0000"><@sf.errors path="lastname" cssClass="error" delimiter=" "/></h6>
+
+                        <br/>
+                        <h5>Страна:</h5>
+                        <@sf.input path="country" name="country" type="text" id="country" maxlength="40"/>
+                        <h6 style="color: #ff0000"><@sf.errors path="country" cssClass="error" delimiter=" "/></h6>
+
+                        <br/>
+                        <h5>Город:</h5>
+                        <@sf.input path="city" name="city" type="text" id="city" maxlength="40"/>
+                        <h6 style="color: #ff0000"><@sf.errors path="city" cssClass="error" delimiter=" "/></h6>
+
+                        <br/>
+                        <h5>Улица:</h5>
+                        <@sf.input path="street" name="street" type="text" id="street" maxlength="40"/>
+                        <h6 style="color: #ff0000"><@sf.errors path="street" cssClass="error" delimiter=" "/></h6>
+
+                        <br/>
+                        <h5>Дом:</h5>
+                        <@sf.input path="house" name="house" type="text" id="house" maxlength="40"/>
+                        <h6 style="color: #ff0000"><@sf.errors path="house" cssClass="error" delimiter=" "/></h6>
+
+                        <br/>
+                        <h5>Квартира:</h5>
+                        <@sf.input path="flat" name="flat" type="text" id="flat" maxlength="40"/>
+                        <h6 style="color: #ff0000"><@sf.errors path="flat" cssClass="error" delimiter=" "/></h6>
+                    </div>
+
+                    <div class="content_half right" align="right">
+                        <div class="form_field" align="left">
+                            <h5>Номер телефона:</h5>
+                            <@sf.input path="phone" name="phone" type="text" id="phone" maxlength="40"/>
+                            <span>Пожалуйста, укажите ваш доступный номер телефона для связи с вами.</span>
+                            <h6 style="color: #ff0000"><@sf.errors path="phone" cssClass="error" delimiter=" "/></h6>
+
+                        <br/>
+                    </div>
+                    <input class="login" type="submit" value="Заказать"/>
+                    </div>
+
+                </@sf.form>
+            </#if>
+
+
                 <div class="cleaner h40"></div>
-
-                <h3>Корзина</h3>
-                <h4>Сумма: <strong>$560</strong></h4>
-
-                <p><input name="terms" type="checkbox" id="terms"/>
-                    I have read and accept the <a href="#">Terms of Use</a>. Validate <a
-                            href="http://validator.w3.org/check?uri=referer" rel="nofollow"><strong>XHTML</strong></a>
-                    &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow"><strong>CSS</strong></a>.
-                </p>
 
             </div>
 
@@ -202,18 +205,18 @@
     <div id="templatemo_footer_wrapper">
         <div id="templatemo_footer">
             <div class="footer_left">
-                <a href="#"><img src="/resources/images/1311260370_paypal-straight.png" alt="Paypal"/></a>
-                <a href="#"><img src="/resources/images/1311260374_mastercard-straight.png" alt="Master"/></a>
-                <a href="#"><img src="/resources/images/1311260374_visa-straight.png" alt="Visa"/></a>
+                <a href="#"><img src="images/1311260370_paypal-straight.png" alt="Paypal"/></a>
+                <a href="#"><img src="images/1311260374_mastercard-straight.png" alt="Master"/></a>
+                <a href="#"><img src="images/1311260374_visa-straight.png" alt="Visa"/></a>
             </div>
             <div class="footer_right">
-                <p><a href="/">Главная</a> | <a href="/about_flowers">О цветах</a> | <a href="/products/all">Цветы</a>
+                <p><a href="/">Главная</a> | <a href="/about_flowers">О цветах</a> | <a href="/products">Цветы</a>
                     | <a href="/delivery">Доставка</a> | <a href="/contacts">Контакты</a> | <a href="/faq">FAQ</a>
                 </p>
 
                 <p>Copyright © 2016 <a href="#">Floris</a></p>
             </div>
-                <div class="cleaner"></div>
+            <div class="cleaner"></div>
         </div>
         <!-- END of footer -->
     </div>

@@ -2,10 +2,13 @@ package ru.kpfu.itis.ALINA_TLITOVA.services.impls;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.kpfu.itis.ALINA_TLITOVA.models.Flower;
 import ru.kpfu.itis.ALINA_TLITOVA.models.ShoppingCartItem;
+import ru.kpfu.itis.ALINA_TLITOVA.models.User;
 import ru.kpfu.itis.ALINA_TLITOVA.repositories.ShoppingCartItemRepository;
 import ru.kpfu.itis.ALINA_TLITOVA.services.ShoppingCartItemService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,6 +24,11 @@ public class ShoppingCartItemServiceImpl implements ShoppingCartItemService {
     @Override
     public List<ShoppingCartItem> getAll() {
         return shoppingCartItemRepository.findAll();
+    }
+
+    @Override
+    public List<ShoppingCartItem> getAllByUser_Id(Integer user_id) {
+        return shoppingCartItemRepository.findAllByUser_id(user_id);
     }
 
     @Override
@@ -45,6 +53,21 @@ public class ShoppingCartItemServiceImpl implements ShoppingCartItemService {
 
     @Override
     public ShoppingCartItem save(ShoppingCartItem shoppingCartItem) {
-       return shoppingCartItemRepository.save(shoppingCartItem);
+        return shoppingCartItemRepository.save(shoppingCartItem);
+    }
+
+    @Override
+    public void updateQuantityAndTotal(Integer quantity, Integer total, User user, Flower flower) {
+        shoppingCartItemRepository.setQuantityAndTotal(quantity, total, user, flower);
+    }
+
+    @Override
+    public void deleteByUser(User user) {
+        shoppingCartItemRepository.deleteByUser(user);
+    }
+
+    @Override
+    public void deleteByFlower(Flower flower) {
+        shoppingCartItemRepository.deleteByFlower(flower);
     }
 }

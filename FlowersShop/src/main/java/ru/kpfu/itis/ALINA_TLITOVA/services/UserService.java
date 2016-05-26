@@ -1,5 +1,6 @@
 package ru.kpfu.itis.ALINA_TLITOVA.services;
 
+import org.springframework.security.core.userdetails.UserDetails;
 import ru.kpfu.itis.ALINA_TLITOVA.forms.RegistrationForm;
 import ru.kpfu.itis.ALINA_TLITOVA.models.User;
 
@@ -22,5 +23,4 @@ public interface UserService {
     User save(User user);
 
     void saveUser(RegistrationForm registrationForm);
-
-}
+    }

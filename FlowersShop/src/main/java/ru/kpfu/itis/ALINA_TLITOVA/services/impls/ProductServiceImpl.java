@@ -9,7 +9,6 @@ import ru.kpfu.itis.ALINA_TLITOVA.repositories.ProductRepository;
 import ru.kpfu.itis.ALINA_TLITOVA.services.ProductService;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author Alina Tlitova
@@ -32,13 +31,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getByUser_id(Integer user_id) {
-        return productRepository.findByUserId(user_id);
-    }
-
-    @Override
     public void deleteById(Integer id) {
-        productRepository.delete(id.longValue());
+        productRepository.deleteById(id);
     }
 
     @Override
@@ -56,5 +50,15 @@ public class ProductServiceImpl implements ProductService {
             product.setPrice(productForm.getPrice());
             productRepository.save(product);
         }
+    }
+
+    @Override
+    public void deleteByUser(User user) {
+        productRepository.deleteByUser(user);
+    }
+
+    @Override
+    public List<Product> getAllByUser_id(Integer user_id) {
+        return productRepository.findAllByUser_id(user_id);
     }
 }

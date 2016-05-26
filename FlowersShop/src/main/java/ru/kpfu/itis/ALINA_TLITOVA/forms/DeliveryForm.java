@@ -11,49 +11,40 @@ import javax.validation.constraints.Size;
  */
 
 public class DeliveryForm {
-    @NotEmpty(message = "Заполните поле")
     @Pattern(message = "Допустимы только символы кириллицы", regexp = "^[а-яА-Я]{2,30}")
     @Size(min = 2, max = 30, message = "Минимальная длина - 2 символа, максимальная - 30")
     private String secondname;
 
-    @NotEmpty(message = "Заполните поле")
     @Pattern(message = "Допустимы только символы кириллицы", regexp = "^[а-яА-Я]{2,30}")
     @Size(min = 2, max = 30, message = "Минимальная длина - 2 символа, максимальная - 30")
     private String name;
 
-    @NotEmpty(message = "Заполните поле")
     @Pattern(message = "Допустимы только символы кириллицы", regexp = "^[а-яА-Я]{2,30}")
     @Size(min = 2, max = 30, message = "Минимальная длина - 2 символа, максимальная - 30")
     private String lastname;
 
-    @NotEmpty(message = "Заполните поле")
     @Pattern(message = "Допустимы только символы кириллицы", regexp = "^[а-яА-Я]{2,30}")
     @Size(min = 2, max = 30, message = "Минимальная длина - 2 символа, максимальная - 30")
     private String country;
 
-    @NotEmpty(message = "Заполните поле")
     @Pattern(message = "Допустимы только символы кириллицы", regexp = "^[а-яА-Я]{2,30}")
     @Size(min = 2, max = 30, message = "Минимальная длина - 2 символа, максимальная - 30")
     private String city;
 
-    @NotEmpty(message = "Заполните поле")
     @Pattern(message = "Допустимы только символы кириллицы", regexp = "^[а-яА-Я]{2,30}")
     @Size(min = 2, max = 30, message = "Минимальная длина - 2 символа, максимальная - 30")
     private String street;
 
-    @NotEmpty(message = "Заполните поле")
-    @Pattern(message = "Допустимы только символы кириллицы", regexp = "^[а-яА-Я]{2,30}")
-    @Size(min = 2, max = 30, message = "Минимальная длина - 2 символа, максимальная - 30")
+    @Pattern(message = "Допустимы только цифры и символы кириллицы", regexp = "^[1-9а-яА-Я]{1,3}")
+    @Size(min = 1, max = 3, message = "Минимальная длина - 1 символ, максимальная - 3")
     private String house;
 
-    @NotEmpty(message = "Заполните поле")
-    @Pattern(message = "Допустимы только цифры и символы кириллицы", regexp = "^[а-яА-Я1-9]{1,4}")
-    @Size(min = 2, max = 4)
+    @Pattern(message = "Допустимы только цифры", regexp = "^[1-9]{1,4}")
+    @Size(min = 1, max = 4, message = "Минимальная длина - 1 символ, максимальная - 4")
     private String flat;
 
-    @NotEmpty(message = "Заполните поле")
     @Pattern(message = "Допустимы только цифры", regexp = "^[1-9]{5,11}")
-    @Size(min = 5, max = 11)
+    @Size(min = 5, max = 11, message = "Минимальная длина - 5 символов, максимальная - 11")
     private String phone;
 
     public String getSecondname() {

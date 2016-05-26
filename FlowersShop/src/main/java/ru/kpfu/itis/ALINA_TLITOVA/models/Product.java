@@ -17,7 +17,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 
@@ -33,9 +33,12 @@ public class Product {
     @Column(name = "descr")
     private String descr;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "number")
+    private String number;
+
+  //  @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date")
-    private Date date;
+    private String date;
 
     public Integer getId() {
         return id;
@@ -85,11 +88,19 @@ public class Product {
         this.descr = descr;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 }

@@ -14,22 +14,21 @@ import javax.validation.constraints.Size;
  */
 
 public class RegistrationForm {
-    @NotEmpty(message = "Заполните поле")
+    @NotEmpty
     @Pattern(message = "Допустимы латинские символы или цифры", regexp = "^[a-zA-Z0-9_-]{3,16}")
-    @Size(min = 6, message = "Минимальная длина логина - 3 символа")
+    @Size(min = 3, message = "Минимальная длина логина - 3 символа")
     private String login;
 
-    @NotEmpty(message = "Заполните поле")
-    @Size(min = 6, message = "Минимальная длина пароля - 4 символа")
+    @NotEmpty
+    @Size(min = 4, message = "Минимальная длина пароля - 4 символа")
     private String password;
 
-    @NotEmpty(message = "Заполните поле")
-    @Size(min = 6, message = "Повторите пароль ещё раз")
-    private String passwordConf;
+    private String confpassword;
 
-    @NotEmpty(message = "Заполните поле")
-    @Pattern(message = "Некорректный e-mail", regexp = "([a-z0-9_\\\\.-])+@[a-z0-9-]+\\\\.([a-z]{2,4}\\\\.)?[a-z]{2,4}")
-    private String email;
+    @NotEmpty
+//    @Pattern(message = "Некорректный e-mail", regexp = "([a-z0-9_\\.-])+@[a-z0-9-]+\\.([a-z]{2,4}\\.)?[a-z]{2,4}")
+    @Size(min = 5, max = 11, message = "Минимальная длина номера - 5 символов, максимальная - 11")
+    private String phone;
 
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -50,20 +49,20 @@ public class RegistrationForm {
         this.password = password;
     }
 
-    public String getPasswordConf() {
-        return passwordConf;
+    public String getConfpassword() {
+        return confpassword;
     }
 
-    public void setPasswordConf(String passwordConf) {
-        this.passwordConf = passwordConf;
+    public void setConfpassword(String confpassword) {
+        this.confpassword = confpassword;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Role getRole() {

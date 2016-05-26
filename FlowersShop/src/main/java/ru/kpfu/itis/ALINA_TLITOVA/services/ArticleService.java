@@ -15,11 +15,13 @@ public interface ArticleService {
 
     Article getById(Integer id);
 
-    Article getByName(String login);
+    Article getByName(String name);
 
     void delete(Article article);
 
     void deleteById(Integer id);
 
     Article save(Article article);
+
+    List<Article> getAllByName(String name);
 }

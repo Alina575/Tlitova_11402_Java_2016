@@ -16,14 +16,14 @@ public interface FlowerService {
 
     Flower getById(Integer id);
 
-    Flower getByName(String login);
+    Flower getByName(String name);
 
     Flower save(Flower flower);
 
     
     //Page<Flower> getByCategory(String category, Integer page);
 
-    List<Flower> search(String name);
-
     List<Flower> getAllByName(String name);
+
+    List<Flower> getAllByCategory(String category);
 }
