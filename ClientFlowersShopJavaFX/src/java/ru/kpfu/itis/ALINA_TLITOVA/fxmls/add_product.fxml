@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0000999999975" prefWidth="425.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <Button layoutX="288.0" layoutY="341.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="102.0" text="Ok" textAlignment="CENTER">
+      <effect>
+        <Reflection bottomOpacity="0.14285714285714285" topOpacity="0.7301587301587301" />
+      </effect>
+      <font>
+        <Font name="System Bold Italic" size="12.0" fx:id="x1" />
+      </font>
+    </Button>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, 0x216600ff 0.0%, 0x00ff29ff 30.0%, 0x000000ff 100.0%)" height="40.0" layoutX="0.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
+    <Label alignment="CENTER" layoutX="0.0" layoutY="386.0" prefWidth="88.0" text="Flowers Shop">
+      <font>
+        <Font name="Andy Bold" size="12.0" />
+      </font>
+    </Label>
+    <Label alignment="CENTER" layoutX="88.0" layoutY="1.0" prefHeight="40.0" prefWidth="129.0" text="Add Product" textAlignment="CENTER">
+      <font>
+        <Font name="System Bold Italic" size="18.0" />
+      </font>
+    </Label>
+    <Label alignment="CENTER" layoutX="8.0" layoutY="41.0" prefHeight="23.0" prefWidth="145.0" text="Menu" textAlignment="CENTER">
+      <font>
+        <Font name="System Bold Italic" size="16.0" />
+      </font>
+    </Label>
+    <Button font="$x1" layoutX="12.0" layoutY="64.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" text="All Products" />
+    <TextField layoutX="188.0" layoutY="82.0" prefWidth="200.0">
+      <effect>
+        <InnerShadow fx:id="x2" />
+      </effect>
+    </TextField>
+    <TextField effect="$x2" layoutX="188.0" layoutY="136.0" prefWidth="200.0" />
+    <TextField effect="$x2" layoutX="188.0" layoutY="189.0" prefWidth="200.0" />
+    <TextField alignment="TOP_LEFT" effect="$x2" layoutX="188.0" layoutY="239.0" prefHeight="68.0" prefWidth="200.0" />
+    <Label layoutX="188.0" layoutY="68.0" prefWidth="33.0" text="Name" />
+    <Label layoutX="188.0" layoutY="120.0" prefWidth="33.0" text="Type" />
+    <Label layoutX="188.0" layoutY="173.0" text="Price" />
+    <Label layoutX="188.0" layoutY="223.0" prefWidth="67.0" text="Description" />
+  </children>
+</AnchorPane>
