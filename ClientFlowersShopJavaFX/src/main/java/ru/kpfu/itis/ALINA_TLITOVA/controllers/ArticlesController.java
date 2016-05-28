@@ -5,5 +5,5 @@ package ru.kpfu.itis.ALINA_TLITOVA.controllers;
  *         11-402
  */
 
-public class AddProductController extends MainController {
+public class ArticlesController extends AbstractController {
 }

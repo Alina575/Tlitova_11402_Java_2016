@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0000999999975" prefWidth="425.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0000999999975" prefWidth="425.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ru.kpfu.itis.ALINA_TLITOVA.controllers.AddMessageController">
   <children>
     <Button layoutX="288.0" layoutY="341.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="102.0" text="Ok" textAlignment="CENTER">
       <effect>
@@ -30,12 +30,11 @@
         <Font name="System Bold Italic" size="18.0" />
       </font>
     </Label>
-    <Label alignment="CENTER" layoutX="8.0" layoutY="41.0" prefHeight="23.0" prefWidth="145.0" text="Menu" textAlignment="CENTER">
+    <Label alignment="CENTER" layoutX="0.0" layoutY="41.0" prefHeight="23.0" prefWidth="141.0" text="Menu" textAlignment="CENTER">
       <font>
         <Font name="System Bold Italic" size="16.0" />
       </font>
     </Label>
-    <Button font="$x1" layoutX="12.0" layoutY="64.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" text="All Products" />
     <TextField layoutX="188.0" layoutY="82.0" prefWidth="200.0">
       <effect>
         <InnerShadow fx:id="x2" />
@@ -48,5 +47,10 @@
     <Label layoutX="188.0" layoutY="120.0" prefWidth="33.0" text="Type" />
     <Label layoutX="188.0" layoutY="173.0" text="Price" />
     <Label layoutX="188.0" layoutY="223.0" prefWidth="67.0" text="Description" />
+    <Button id="products" onAction="#products" font="$x1" layoutX="-2.0" layoutY="66.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" text="Products" />
+    <Button id="articles" onAction="#articles" font="$x1" layoutX="-2.0" layoutY="106.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" text="Articles" />
+    <Button id="orders" onAction="#orders" font="$x1" layoutX="-2.0" layoutY="146.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" text="Orders" />
+    <Button id="add_message" onAction="#add_message" font="$x1" layoutX="-2.0" layoutY="186.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" text="Add Message" />
+    <Button id="messages" onAction="#messages" font="$x1" layoutX="0.0" layoutY="226.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" text="Messages" />
   </children>
 </AnchorPane>

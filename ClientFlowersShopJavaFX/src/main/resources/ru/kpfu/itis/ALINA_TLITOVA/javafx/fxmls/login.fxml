@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="299.0" xmlns="http://javafx.com/javafx/2.2"
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="299.0" xmlns="http://javafx.com/javafx/2.2"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kpfu.itis.ALINA_TLITOVA.controllers.LoginController">
   <children>
     <TextField fx:id="loginTextField" layoutX="50.0" layoutY="101.0" prefWidth="200.0">
@@ -16,7 +16,7 @@
         <InnerShadow />
       </effect>
     </TextField>
-    <PasswordField fx:id="passwordField" layoutX="50.0" layoutY="154.0" prefWidth="200.0">
+    <PasswordField fx:id="passwordField" layoutX="50.0" layoutY="139.0" prefWidth="200.0">
       <effect>
         <InnerShadow />
       </effect>
@@ -30,8 +30,8 @@
       </font>
     </Label>
     <Label layoutX="50.0" layoutY="85.0" text="Login" />
-    <Label layoutX="50.0" layoutY="138.0" text="Password" />
-    <Button layoutX="99.0" layoutY="203.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="102.0" text="Ok" textAlignment="CENTER">
+    <Label layoutX="50.0" layoutY="123.0" text="Password" />
+    <Button layoutX="99.0" layoutY="189.0"  mnemonicParsing="false" onAction="#login"  prefHeight="23.0" prefWidth="102.0" text="Ok" textAlignment="CENTER">
       <effect>
         <Reflection bottomOpacity="0.14285714285714285" topOpacity="0.7301587301587301" />
       </effect>
