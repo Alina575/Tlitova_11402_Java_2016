@@ -2,14 +2,20 @@ package sample;
 
 import javafx.animation.*;
 import javafx.application.Application;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -25,6 +31,7 @@ import java.util.Iterator;
 /**
  * @author Alina Tlitova
  *         11-402
+ *         26.05.2016
  */
 
 public class BerryKoala extends Application {
@@ -35,6 +42,10 @@ public class BerryKoala extends Application {
     public AnimationTimer animationTimer;
     public static int score = 0;
     public static long lastNanoTime;
+    private static final Integer STARTTIME = 0;
+    private Timeline timeline;
+    private Label timerLabel = new Label();
+    private IntegerProperty timeSeconds = new SimpleIntegerProperty(STARTTIME);
 
     @Override
     public void start(Stage stage) {
@@ -42,6 +53,21 @@ public class BerryKoala extends Application {
         Group r = new Group();
         Scene sc = new Scene(r);
         stage.setScene(sc);
+
+        timerLabel.textProperty().bind(timeSeconds.asString());
+        timerLabel.setTextFill(Color.RED);
+        timerLabel.setStyle("-fx-font-size: 5em;");
+        r.getChildren().add(timerLabel);
+
+//        if (timeline != null) {
+//            timeline.stop();
+//        }
+        timeSeconds.set(STARTTIME);
+        timeline = new Timeline();
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(STARTTIME + 1),
+                new KeyValue(timeSeconds, 0)));
+        timeline.playFromStart();
+
 
         Canvas canvas = new Canvas(512, 512);
         r.getChildren().add(canvas);
@@ -90,8 +116,8 @@ public class BerryKoala extends Application {
 
 
         int k = 0;
-        while (k < 3) {
-            for (int i = 1; i < 6; i++) {
+        while (k < 4) {
+            for (int i = 1; i < 7; i++) {
                 Element berry = new Element();
                 String img = "images/berry" + i + ".png";
                 berry.setImage(img);
@@ -137,7 +163,7 @@ public class BerryKoala extends Application {
                     Element foo = fooIt.next();
                     if (koala.intersects(foo)) {
                         fooIt.remove();
-                        score--;
+                        score -= 10;
                     }
                 }
 
@@ -152,9 +178,51 @@ public class BerryKoala extends Application {
                     koala.render(grafCon);
 
                 if (score < 0) {
-                    String res = "Game over :( ";
-                    grafCon.fillText(res, 370, 30);
-                    grafCon.strokeText(res, 370, 30);
+                    animationTimer.stop();
+                    String win = "GAME OVER!:(";
+
+                    HBox hBox = new HBox();
+                    hBox.setTranslateX(50);
+                    hBox.setTranslateY(100);
+                    r.getChildren().add(hBox);
+
+                    for (int i = 0; i < win.toCharArray().length; i++) {
+                        char letter = win.charAt(i);
+
+                        Text text = new Text(String.valueOf(letter));
+                        text.setFont(Font.font(38));
+                        text.setOpacity(0);
+
+                        hBox.getChildren().add(text);
+
+                        FadeTransition ft = new FadeTransition(Duration.seconds(0.50), text);
+                        ft.setToValue(1);
+                        ft.setDelay(Duration.seconds(i * 0.10));
+                        ft.play();
+                    }
+                } else if (timeSeconds.intValue() == 20) {
+                    animationTimer.stop();
+                    String win = "YOUR TIME IS OVER!:(";
+
+                    HBox hBox = new HBox();
+                    hBox.setTranslateX(50);
+                    hBox.setTranslateY(100);
+                    r.getChildren().add(hBox);
+
+                    for (int i = 0; i < win.toCharArray().length; i++) {
+                        char letter = win.charAt(i);
+
+                        Text text = new Text(String.valueOf(letter));
+                        text.setFont(Font.font(38));
+                        text.setOpacity(0);
+
+                        hBox.getChildren().add(text);
+
+                        FadeTransition ft = new FadeTransition(Duration.seconds(0.50), text);
+                        ft.setToValue(1);
+                        ft.setDelay(Duration.seconds(i * 0.10));
+                        ft.play();
+                    }
                 } else {
                     if (elements.isEmpty()) {
                         animationTimer.stop();
@@ -169,7 +237,6 @@ public class BerryKoala extends Application {
                             char letter = win.charAt(i);
 
                             Text text = new Text(String.valueOf(letter));
-                            //   text.setEffect();
                             text.setFont(Font.font(38));
                             text.setOpacity(0);
 
@@ -189,10 +256,10 @@ public class BerryKoala extends Application {
             }
         };
 
+        startAnimation(r);
         animationTimer.start();
         stage.getScene().getStylesheets().add("css/style.css");
         stage.show();
-        startAnimation(r);
     }
 
 
@@ -211,25 +278,31 @@ public class BerryKoala extends Application {
         REDin.setNode(red);
         REDin.setToValue(1.0);
 
-        final FadeTransition ORENGEin = new FadeTransition(new Duration(3500));
-        REDin.setNode(red);
-        REDin.setToValue(1.0);
-
-        final FadeTransition GREENin = new FadeTransition(new Duration(500));
-        REDin.setNode(red);
-        REDin.setToValue(1.0);
-
         final ScaleTransition REDscale = new ScaleTransition(new Duration(1000));
         REDscale.setNode(red);
         REDscale.setFromX(1.0);
         REDscale.setFromY(1.0);
-        REDscale.setToX(4.0);
-        REDscale.setToY(4.0);
+        REDscale.setToX(5.0);
+        REDscale.setToY(5.0);
         REDscale.setAutoReverse(true);
         REDscale.setCycleCount(2);
 
-        final ScaleTransition ORANGEscale = new ScaleTransition(new Duration(4000));
-        ORANGEscale.setNode(red);
+        final FadeTransition REDout = new FadeTransition(new Duration(500));
+        REDout.setNode(red);
+        REDout.setToValue(0.0);
+        REDout.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                root.getChildren().remove(red);
+            }
+        });
+
+        final FadeTransition ORANGEin = new FadeTransition(new Duration(3000));
+        ORANGEin.setNode(orange);
+        ORANGEin.setToValue(1.0);
+
+        final ScaleTransition ORANGEscale = new ScaleTransition(new Duration(3500));
+        ORANGEscale.setNode(orange);
         ORANGEscale.setFromX(1.0);
         ORANGEscale.setFromY(1.0);
         ORANGEscale.setToX(4.0);
@@ -237,15 +310,39 @@ public class BerryKoala extends Application {
         ORANGEscale.setAutoReverse(true);
         ORANGEscale.setCycleCount(2);
 
-        final FadeTransition out = new FadeTransition(new Duration(500));
-        out.setNode(red);
-        out.setToValue(0.0);
-        out.setOnFinished(new EventHandler<ActionEvent>() {
+        final FadeTransition ORANGEout = new FadeTransition(new Duration(3000));
+        ORANGEout.setNode(orange);
+        ORANGEout.setToValue(0.0);
+        ORANGEout.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                root.getChildren().remove(red);
+                root.getChildren().remove(orange);
             }
         });
+
+        final FadeTransition GREENin = new FadeTransition(new Duration(500));
+        GREENin.setNode(green);
+        GREENin.setToValue(1.0);
+
+        final ScaleTransition GREENscale = new ScaleTransition(new Duration(3500));
+        GREENscale.setNode(green);
+        GREENscale.setFromX(1.0);
+        GREENscale.setFromY(1.0);
+        GREENscale.setToX(4.0);
+        GREENscale.setToY(4.0);
+        GREENscale.setAutoReverse(true);
+        GREENscale.setCycleCount(2);
+
+        final FadeTransition GREENout = new FadeTransition(new Duration(3000));
+        GREENout.setNode(green);
+        GREENout.setToValue(0.0);
+        GREENout.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                root.getChildren().remove(orange);
+            }
+        });
+
 
         Timeline timeline = new Timeline(
                 new KeyFrame(new Duration(1000), new EventHandler<ActionEvent>() {
@@ -266,21 +363,28 @@ public class BerryKoala extends Application {
                 new KeyFrame(new Duration(3000), new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
-                        out.play();
+                        REDout.play();
                     }
                 }),
 
-                new KeyFrame(new Duration(3200), new EventHandler<ActionEvent>() {
+                new KeyFrame(new Duration(3500), new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
-                        ORENGEin.play();
+                        ORANGEin.play();
                     }
                 }),
 
-                new KeyFrame(new Duration(3700), new EventHandler<ActionEvent>() {
+                new KeyFrame(new Duration(4000), new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
                         ORANGEscale.play();
+                    }
+                }),
+
+                new KeyFrame(new Duration(8000), new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        ORANGEout.play();
                     }
                 })
         );
