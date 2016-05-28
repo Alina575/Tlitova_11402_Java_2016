@@ -60,13 +60,31 @@ public class RestAPIController {
         return messageService.getAll();
     }
 
-//    @RequestMapping(value = "/add_product", method = RequestMethod.POST)
-//    public List<Product> getAddProduct() {
-//        return productService.getAll();
-//    }
-//
-//    @RequestMapping(value = "/add_message", method = RequestMethod.POST)
-//    public List<Message> getAddMessage() {
-//        return messageService.getAll();
-//    }
+    @RequestMapping(value = "/add_product", method = RequestMethod.POST)
+    public void addProduct(@RequestParam String user_id, @RequestParam String name,
+                           @RequestParam String type, @RequestParam String price,
+                           @RequestParam String descr, @RequestParam String number,
+                           @RequestParam String date) {
+
+        Product product = new Product();
+        product.setUser(userService.getById(Integer.parseInt(user_id)));
+        product.setName(name);
+        product.setType(type);
+        product.setPrice(Integer.parseInt(price));
+        product.setDescr(descr);
+        product.setNumber(number);
+        product.setDate(date);
+        productService.save(product);
+    }
+
+    @RequestMapping(value = "/add_message", method = RequestMethod.POST)
+    public void addMessage(@RequestParam String user_id, @RequestParam String theme,
+                           @RequestParam String text, @RequestParam String date) {
+        Message message = new Message();
+        message.setUser(userService.getById(Integer.parseInt(user_id)));
+        message.setTheme(theme);
+        message.setText(text);
+        message.setDate(date);
+        messageService.save(message);
+    }
 }
