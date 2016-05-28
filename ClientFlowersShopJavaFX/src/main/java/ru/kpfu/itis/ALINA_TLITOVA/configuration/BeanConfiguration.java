@@ -40,6 +40,16 @@ public class BeanConfiguration {
     }
 
     @Bean
+    MessagesController messagesController(){
+        return new MessagesController();
+    }
+
+    @Bean
+    AddMessageController addMessageController(){
+        return new AddMessageController();
+    }
+
+    @Bean
     Loader Loader() {
         return new Loader();
     }

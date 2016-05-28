@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0000999999975" prefWidth="673.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ru.kpfu.itis.ALINA_TLITOVA.controllers.ArticlesController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.999977929685" prefWidth="673.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ru.kpfu.itis.ALINA_TLITOVA.controllers.ArticlesController">
   <children>
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, 0x216600ff 0.0%, 0x00ff29ff 30.0%, 0x000000ff 100.0%)" height="40.0" layoutX="0.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" width="673.0" />
     <Label alignment="CENTER" layoutX="0.0" layoutY="386.0" prefWidth="88.0" text="Flowers Shop">
@@ -34,13 +34,20 @@
         <Font name="System Bold Italic" size="16.0" />
       </font>
     </Label>
-    <Button id="products" layoutX="0.0" layoutY="64.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" text="Products">
+    <Hyperlink layoutX="634.0" layoutY="3.0" minHeight="14.0" onMouseClicked="#logout" prefHeight="23.0" text="Logout" textFill="WHITE">
+      <font>
+        <Font name="System Bold Italic" size="10.0" />
+      </font>
+    </Hyperlink>
+    <Button layoutX="0.0" layoutY="65.0" mnemonicParsing="false" onAction="#products" prefHeight="40.0" prefWidth="141.0" text="Products">
       <font>
         <Font name="System Bold Italic" size="12.0" fx:id="x1" />
       </font>
     </Button>
-    <Button onAction="#orders" id="articles" font="$x1" layoutX="-2.0" layoutY="104.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" text="Orders" />
-    <Button onAction="#add_message" id="add_message" font="$x1" layoutX="-2.0" layoutY="144.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" text="Add Message" />
-    <Button onAction="#messages" id="messages" font="$x1" layoutX="0.0" layoutY="184.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" text="Messages" />
+    <Button id="articles" font="$x1" layoutX="0.0" layoutY="145.0" mnemonicParsing="false" onAction="#articles" prefHeight="40.0" prefWidth="141.0" text="Articles" />
+    <Button id="add_product" font="$x1" layoutX="0.0" layoutY="105.0" mnemonicParsing="false" onAction="#add_product" prefHeight="40.0" prefWidth="141.0" text="Add Product" />
+    <Button id="add_message" font="$x1" layoutX="0.0" layoutY="265.0" mnemonicParsing="false" onAction="#add_message" prefHeight="40.0" prefWidth="141.0" text="Add Message" />
+    <Button id="messages" font="$x1" layoutX="0.0" layoutY="225.0" mnemonicParsing="false" onAction="#messages" prefHeight="40.0" prefWidth="141.0" text="Messages" />
+    <Button id="orders" font="$x1" layoutX="0.0" layoutY="185.0" mnemonicParsing="false" onAction="#orders" prefHeight="40.0" prefWidth="141.0" text="Orders" />
   </children>
 </AnchorPane>

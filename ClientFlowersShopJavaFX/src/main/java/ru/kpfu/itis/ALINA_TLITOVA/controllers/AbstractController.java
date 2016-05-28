@@ -45,4 +45,8 @@ public abstract class AbstractController {
         loader.redirect("add_message");
     }
 
+    public void logout() {
+        connection.logout();
+        loader.redirect("login");
+    }
 }

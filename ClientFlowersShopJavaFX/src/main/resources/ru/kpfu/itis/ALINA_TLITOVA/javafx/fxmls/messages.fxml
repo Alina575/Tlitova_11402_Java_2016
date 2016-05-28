@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0000999999975" prefWidth="673.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ru.kpfu.itis.ALINA_TLITOVA.controllers.OrdersController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0000999999975" prefWidth="673.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ru.kpfu.itis.ALINA_TLITOVA.controllers.MessagesController">
   <children>
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, 0x216600ff 0.0%, 0x00ff29ff 30.0%, 0x000000ff 100.0%)" height="40.0" layoutX="0.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" width="673.0" />
     <Label alignment="CENTER" layoutX="0.0" layoutY="386.0" prefWidth="88.0" text="Flowers Shop">
@@ -25,24 +25,30 @@
     <TableView layoutX="141.0" layoutY="41.0" prefHeight="359.0" prefWidth="532.0">
       <columns>
         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="82.0" text="User ID" fx:id="userId" />
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="122.0" text="Theme" fx:id="flowerId" />
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="208.0" text="Text" fx:id="quantity" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="122.0" text="Theme" fx:id="theme" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="208.0" text="Text" fx:id="text" />
         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="118.0" text="Date" fx:id="date" />
       </columns>
     </TableView>
-    <Button fx:id="products" layoutX="0.0" layoutY="64.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" text="Products">
-      <font>
-        <Font name="System Bold Italic" size="12.0" fx:id="x1" />
-      </font>
-    </Button>
     <Label alignment="CENTER" layoutX="0.0" layoutY="41.0" prefHeight="23.0" prefWidth="145.0" text="Menu" textAlignment="CENTER">
       <font>
         <Font name="System Bold Italic" size="16.0" />
       </font>
     </Label>
-    <Button fx:id="articles" font="$x1" layoutX="0.0" layoutY="104.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" text="Articles" />
-    <Button id="articles" font="$x1" layoutX="0.0" layoutY="144.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" text="Orders" />
-    <Button id="articles" font="$x1" layoutX="0.0" layoutY="184.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" text="Add Message" />
-    <Button id="products" font="$x1" layoutX="2.0" layoutY="224.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" text="Add Product" />
+    <Button layoutX="0.0" layoutY="65.0" mnemonicParsing="false" onAction="#products" prefHeight="40.0" prefWidth="141.0" text="Products">
+      <font>
+        <Font name="System Bold Italic" size="12.0" fx:id="x1" />
+      </font>
+    </Button>
+    <Button id="articles" font="$x1" layoutX="0.0" layoutY="145.0" mnemonicParsing="false" onAction="#articles" prefHeight="40.0" prefWidth="141.0" text="Articles" />
+    <Button id="add_product" font="$x1" layoutX="0.0" layoutY="105.0" mnemonicParsing="false" onAction="#add_product" prefHeight="40.0" prefWidth="141.0" text="Add Product" />
+    <Button id="add_message" font="$x1" layoutX="0.0" layoutY="265.0" mnemonicParsing="false" onAction="#add_message" prefHeight="40.0" prefWidth="141.0" text="Add Message" />
+    <Button id="messages" font="$x1" layoutX="0.0" layoutY="225.0" mnemonicParsing="false" onAction="#messages" prefHeight="40.0" prefWidth="141.0" text="Messages" />
+    <Button id="orders" font="$x1" layoutX="0.0" layoutY="185.0" mnemonicParsing="false" onAction="#orders" prefHeight="40.0" prefWidth="141.0" text="Orders" />
+    <Hyperlink layoutX="627.0" layoutY="4.0" minHeight="14.0" onMouseClicked="#logout" prefHeight="23.0" text="Logout" textFill="WHITE">
+      <font>
+        <Font name="System Bold Italic" size="10.0" />
+      </font>
+    </Hyperlink>
   </children>
 </AnchorPane>
